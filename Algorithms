@@ -1,0 +1,40 @@
+Sieve Eratosthenes Algorithm for Prime numbers less than 'N'
+memeset in cpp:
+used to initialize the array with same value
+memeset(array,value,sizeofarray)
+Naive appraoch for the problem O(N*N)
+######################################################################################################
+Algorithm:
+•	Make an array with Boolean type and initialize using memeset with True
+•	Choose value n start with 2 and end with N/2
+•	Make the array values into false when they are divisible by n
+•	Continue step 2 until the process N/2
+•	Print the numbers in the array having True as there value
+The time complexity for this approach is n*loglogn
+#####################################################################################################
+Code:
+#include<cstring>
+#include <iostream>
+using namespace std;
+void Sieve_Eratosthenes(int n){
+    bool arr[n+1];
+    memset(arr,true,sizeof(arr));
+    for(int i=2;i*i<=n;i++){
+        if(arr[i]==true){
+            for(int p=i*i;p<=n;p=p+i){
+                arr[p]=false;
+            }
+        }
+    }
+    for(int k=2;k<n+1;k++){
+        if(arr[k]){
+            cout<<k<<" ";
+        }
+    }
+}
+int main(){
+  	int n;
+  	cin>>n;
+    Sieve_Eratosthenes(n);
+    return 0;
+}
