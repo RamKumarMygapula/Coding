@@ -1,0 +1,3 @@
+The unordered_set::reserve() method is a builtin function in C++ STL which is used to request capacity change of unordered_set.
+It sets the number of buckets in the container to contain at least n elements
+//prime.reserve(limit);
